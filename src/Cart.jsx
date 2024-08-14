@@ -8,6 +8,7 @@ const Cart = () => {
           <li>Product in cart # 2</li>
           <li>Product in cart # 3</li>
         </ul>
+        <button>Checkout</button>
       </div>
     </>
   );
