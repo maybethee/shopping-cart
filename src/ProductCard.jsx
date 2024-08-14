@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductCard = ({ handleQuantityIncrease }) => {
+const ProductCard = ({ handleQuantityIncrease, productObject }) => {
   const [inputQuantity, setInputQuantity] = useState(1);
 
   function handleButtonClick(direction) {
@@ -25,9 +25,11 @@ const ProductCard = ({ handleQuantityIncrease }) => {
 
   return (
     <div style={{ border: "solid 1px black", margin: "3rem" }}>
-      <div>img placeholder</div>
-      <h4>Product Name</h4>
-      <p>Product Description</p>
+      <img src={productObject.image} alt={productObject.title} />
+      <h4>{productObject.title}</h4>
+      <p>{productObject.description}</p>
+      <hr />
+      <h5>${productObject.price}</h5>
       <div>
         <button onClick={() => handleButtonClick("descend")}>-</button>
         <input
