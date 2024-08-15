@@ -3,20 +3,28 @@ import ProductCard from "./ProductCard";
 import { useState, useEffect } from "react";
 
 const Products = () => {
-  const [itemQuantity, setItemQuantity] = useOutletContext();
+  // const [itemQuantity, setItemQuantity] = useOutletContext();
 
-  function handleQuantityIncrease(addedQuantity) {
-    setItemQuantity(itemQuantity + addedQuantity);
-  }
+  // const [cartTotal, setCartTotal] = useOutletContext();
+
+  const { itemQuantity, setItemQuantity, cartTotal, setCartTotal } =
+    useOutletContext();
 
   const [products, setProducts] = useState([]);
+
+  function handleQuantityIncrease(addedQuantity, price) {
+    // console.log("price:", price);
+    // console.log("addedquantity:", addedQuantity);
+    // console.log("cart total:", cartTotal);
+    setItemQuantity(itemQuantity + addedQuantity);
+    setCartTotal((+cartTotal + price * addedQuantity).toFixed(2));
+    // console.log("cart total:", cartTotal);
+  }
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
       .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-        console.log(data); // Log the fetched data here
-      });
+      .then((data) => setProducts(data));
   }, []);
 
   return (

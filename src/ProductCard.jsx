@@ -29,7 +29,7 @@ const ProductCard = ({ handleQuantityIncrease, productObject }) => {
       <h4>{productObject.title}</h4>
       <p>{productObject.description}</p>
       <hr />
-      <h5>${productObject.price}</h5>
+      <h5>${(+productObject.price).toFixed(2)}</h5>
       <div>
         <button onClick={() => handleButtonClick("descend")}>-</button>
         <input
@@ -40,7 +40,12 @@ const ProductCard = ({ handleQuantityIncrease, productObject }) => {
         />
         <button onClick={() => handleButtonClick("ascend")}>+</button>
       </div>
-      <button onClick={() => handleQuantityIncrease(inputQuantity)}>
+      <button
+        onClick={() => {
+          console.log(productObject.price);
+          handleQuantityIncrease(inputQuantity, productObject.price);
+        }}
+      >
         ADD TO CART
       </button>
     </div>

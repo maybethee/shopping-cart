@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Nav = ({ cartItems }) => {
+const Nav = ({ cartItems, cartTotalAmount }) => {
   return (
-    <div>
+    <div style={{ position: "sticky", top: "1rem", backgroundColor: "white" }}>
       <nav>
         <ul>
           <li>
@@ -12,7 +12,8 @@ const Nav = ({ cartItems }) => {
             <Link to="/products">Shop page</Link>
           </li>
           <li>
-            <Link to="/cart">Your Cart</Link>: {cartItems} in cart
+            <Link to="/cart">Your Cart</Link>: {cartItems} in cart Total: $
+            {cartTotalAmount}
           </li>
         </ul>
       </nav>
