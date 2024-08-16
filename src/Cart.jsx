@@ -1,13 +1,27 @@
+import { useOutletContext } from "react-router-dom";
+import CartItem from "./CartItem";
+
 const Cart = () => {
+  const { cartItems, cartTotal, removeFromCart } = useOutletContext();
+
   return (
     <>
       <div>
         <h1>This is the Cart</h1>
         <ul>
-          <li>Product in cart # 1</li>
-          <li>Product in cart # 2</li>
-          <li>Product in cart # 3</li>
+          <div>
+            {cartItems.map((item) => {
+              return (
+                <CartItem
+                  key={item.id}
+                  cartItemObj={item}
+                  removeFromCart={removeFromCart}
+                />
+              );
+            })}
+          </div>
         </ul>
+        <h3>Total: ${cartTotal} </h3>
         <button>Checkout</button>
       </div>
     </>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductCard = ({ handleQuantityIncrease, productObject }) => {
+const ProductCard = ({ addToCart, productObject }) => {
   const [inputQuantity, setInputQuantity] = useState(1);
 
   function handleButtonClick(direction) {
@@ -43,7 +43,7 @@ const ProductCard = ({ handleQuantityIncrease, productObject }) => {
       <button
         onClick={() => {
           console.log(productObject.price);
-          handleQuantityIncrease(inputQuantity, productObject.price);
+          addToCart(productObject, inputQuantity);
         }}
       >
         ADD TO CART

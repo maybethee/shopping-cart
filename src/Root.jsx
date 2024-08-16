@@ -1,17 +1,72 @@
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 const Root = () => {
   const [itemQuantity, setItemQuantity] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/electronics")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  const addToCart = (product, quantity) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      } else {
+        return [...prevItems, { ...product, quantity }];
+      }
+    });
+    setItemQuantity((prevQuantity) => prevQuantity + quantity);
+    setCartTotal((prevTotal) =>
+      (+prevTotal + product.price * quantity).toFixed(2)
+    );
+  };
+
+  const removeFromCart = (productId) => {
+    setCartItems((prevItems) => {
+      const toRemove = prevItems.find((item) => item.id === productId);
+
+      if (toRemove) {
+        const updatedCartItems = prevItems.filter(
+          (item) => item.id !== productId
+        );
+        setItemQuantity((prevQuantity) => prevQuantity - toRemove.quantity);
+        setCartTotal((prevTotal) =>
+          (prevTotal - toRemove.price * toRemove.quantity).toFixed(2)
+        );
+        return updatedCartItems;
+      }
+      return prevItems;
+    });
+  };
 
   return (
     <div>
       <Nav cartItems={itemQuantity} cartTotalAmount={cartTotal} />
       <Outlet
-        context={{ itemQuantity, setItemQuantity, cartTotal, setCartTotal }}
+        context={{
+          products,
+          itemQuantity,
+          setItemQuantity,
+          cartTotal,
+          setCartTotal,
+          cartItems,
+          addToCart,
+          removeFromCart,
+        }}
       />
     </div>
   );
