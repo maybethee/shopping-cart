@@ -1,25 +1,29 @@
 import { useOutletContext } from "react-router-dom";
 import ProductCard from "./ProductCard";
-import { useState, useEffect } from "react";
 
 const Products = () => {
-  const { products, addToCart } = useOutletContext();
+  const { products, addToCart, loading, error } = useOutletContext();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
 
   return (
     <>
       <div>
-        <h1>This is the Shop Page</h1>
-        <div>
+        <h1>Here is the technology you can own if you pay us:</h1>
+        <ul>
           {products.map((product) => {
             return (
-              <ProductCard
-                key={product.id}
-                productObject={product}
-                addToCart={addToCart}
-              />
+              <li key={product.id}>
+                <ProductCard
+                  key={product.id}
+                  productObject={product}
+                  addToCart={addToCart}
+                />
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </>
   );

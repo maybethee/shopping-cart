@@ -6,12 +6,13 @@ const Nav = ({ cartItems, cartTotalAmount }) => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home page</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/products">Shop page</Link>
+            <Link to="/products">Technology Shop</Link>
           </li>
           <li>
+            {/* should be an icon i guess */}
             <Link to="/cart">Your Cart</Link>: {cartItems} in cart Total: $
             {cartTotalAmount}
           </li>

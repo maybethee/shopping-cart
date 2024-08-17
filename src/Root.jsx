@@ -7,12 +7,21 @@ const Root = () => {
   const [itemQuantity, setItemQuantity] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/electronics")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("server error");
+        }
+        return response.json();
+      })
+      .then((data) => setProducts(data))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
   }, []);
 
   const addToCart = (product, quantity) => {
@@ -59,6 +68,8 @@ const Root = () => {
       <Outlet
         context={{
           products,
+          loading,
+          error,
           itemQuantity,
           setItemQuantity,
           cartTotal,

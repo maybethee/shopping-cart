@@ -10,6 +10,7 @@ const CartItem = ({ cartItemObj, removeFromCart }) => {
         {(+cartItemObj.price).toFixed(2)} each)
       </h5>
 
+      {/* make this an icon  */}
       <button onClick={() => removeFromCart(cartItemObj.id)}>DELETE</button>
     </div>
   );
