@@ -29,17 +29,18 @@ const Cart = () => {
                       key={item.id}
                       cartItemObj={item}
                       removeFromCart={removeFromCart}
+                      data-testid="cart-item"
                     />
                   </li>
                 );
               })}
             </ul>
-            <h3>Total: ${cartTotal} </h3>
+            <h3>Total: ${cartTotal}</h3>
             <button onClick={() => handleCheckout()}>Checkout</button>
           </div>
         ) : (
           <h3>
-            Your cart is empty. Add items from{" "}
+            Your cart is empty. Add items from
             <Link to="/products">our shop</Link>.
           </h3>
         )}
