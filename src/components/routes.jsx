@@ -1,5 +1,5 @@
 import Root from "./Root";
-import App from "./App";
+import Home from "./Home";
 import ErrorPage from "./ErrorPage";
 import Products from "./Products";
 import Cart from "./Cart";
@@ -12,7 +12,7 @@ const routes = [
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Home />,
       },
       {
         path: "/products",

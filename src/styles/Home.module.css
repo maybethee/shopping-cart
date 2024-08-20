@@ -1,0 +1,41 @@
+.pageWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100vh;
+}
+
+.leftCol {
+  display: flex;
+  flex-flow: column;
+  width: 45%;
+}
+
+.rightCol {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "top top"
+    ". .";
+  padding: 1rem;
+  border: solid black 2px;
+  background-color: blueviolet;
+  border-radius: 12px;
+}
+
+.imgContainer {
+  padding: 1rem;
+  border: solid black 2px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: end;
+}
+
+.product1 {
+  grid-column: 1 / span 2;
+}
+
+.productDetails {
+  background-color: gray;
+}

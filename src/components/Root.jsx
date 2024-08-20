@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
 import { useState, useEffect } from "react";
-import "./App.css";
+import "../styles/global.css";
 
 const Root = () => {
   const [itemQuantity, setItemQuantity] = useState(0);
@@ -62,8 +62,11 @@ const Root = () => {
     });
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
+
   return (
-    <div>
+    <div className="pageWrapper">
       <Nav cartItems={itemQuantity} cartTotalAmount={cartTotal} />
       <Outlet
         context={{

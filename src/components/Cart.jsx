@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import CartItem from "./CartItem";
+import styles from "../styles/Cart.module.css";
 
 const Cart = () => {
   const { cartItems, cartTotal, removeFromCart } = useOutletContext();
@@ -16,7 +17,7 @@ const Cart = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.wrapper}>
         <h1>Cart</h1>
         {console.log(cartItems)}
         {cartItems.length > 0 ? (
@@ -36,11 +37,13 @@ const Cart = () => {
               })}
             </ul>
             <h3>Total: ${cartTotal}</h3>
-            <button onClick={() => handleCheckout()}>Checkout</button>
+            <button className={styles.btn} onClick={() => handleCheckout()}>
+              Checkout
+            </button>
           </div>
         ) : (
           <h3>
-            Your cart is empty. Add items from
+            Your cart is empty. Add items from{" "}
             <Link to="/products">our shop</Link>.
           </h3>
         )}
