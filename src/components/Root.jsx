@@ -66,7 +66,7 @@ const Root = () => {
   if (error) return <p>A network error was encountered</p>;
 
   return (
-    <div className="pageWrapper">
+    <div>
       <Nav cartItems={itemQuantity} cartTotalAmount={cartTotal} />
       <Outlet
         context={{

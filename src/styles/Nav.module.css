@@ -34,3 +34,8 @@
   align-items: center;
   justify-content: center;
 }
+
+/* maybe add some animation to this */
+.cartIconContainer:hover .cartItems {
+  scale: 1.2;
+}

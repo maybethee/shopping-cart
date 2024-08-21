@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../styles/ProductCard.module.css";
 
 const ProductCard = ({ addToCart, productObject }) => {
   const [inputQuantity, setInputQuantity] = useState(1);
@@ -24,30 +25,44 @@ const ProductCard = ({ addToCart, productObject }) => {
   }
 
   return (
-    <div style={{ border: "solid 1px black", margin: "3rem" }}>
-      <img src={productObject.image} alt={productObject.title} />
-      <h4>{productObject.title}</h4>
-      <p>{productObject.description}</p>
-      <hr />
-      <h5>${(+productObject.price).toFixed(2)}</h5>
-      <div>
-        <button onClick={() => handleButtonClick("descend")}>-</button>
-        <input
-          type="text"
-          style={{ width: "25px" }}
-          onChange={handleInputChange}
-          value={inputQuantity}
-        />
-        <button onClick={() => handleButtonClick("ascend")}>+</button>
+    <div className={styles.card}>
+      <div className={styles.leftCol}>
+        <img src={productObject.image} alt={productObject.title} />
       </div>
-      <button
-        onClick={() => {
-          console.log(productObject.price);
-          addToCart(productObject, inputQuantity);
-        }}
-      >
-        ADD TO CART
-      </button>
+
+      <div className={styles.rightCol}>
+        <div className={styles.productDetails}>
+          <h4 className={styles.productTitle}>{productObject.title}</h4>
+          <p className={styles.productDescription}>
+            {productObject.description}
+          </p>
+        </div>
+        <hr />
+        <h5 className={styles.productPrice}>
+          ${(+productObject.price).toFixed(2)}
+        </h5>
+        <div className={styles.quantityControl}>
+          <div>
+            <button onClick={() => handleButtonClick("descend")}>-</button>
+            <input
+              className={styles.input}
+              type="text"
+              onChange={handleInputChange}
+              value={inputQuantity}
+            />
+            <button onClick={() => handleButtonClick("ascend")}>+</button>
+          </div>
+          <button
+            className={styles.addToCart}
+            onClick={() => {
+              console.log(productObject.price);
+              addToCart(productObject, inputQuantity);
+            }}
+          >
+            ADD TO CART
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

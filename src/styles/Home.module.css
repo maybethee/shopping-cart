@@ -14,12 +14,9 @@
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "top top"
-    ". .";
   padding: 1rem;
   border: solid black 2px;
-  background-color: blueviolet;
+  background-color: whitesmoke;
   border-radius: 12px;
 }
 

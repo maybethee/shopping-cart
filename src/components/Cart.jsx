@@ -4,7 +4,11 @@ import CartItem from "./CartItem";
 import styles from "../styles/Cart.module.css";
 
 const Cart = () => {
-  const { cartItems, cartTotal, removeFromCart } = useOutletContext();
+  const { cartItems, cartTotal, removeFromCart, itemQuantity } =
+    useOutletContext();
+
+  const pluralize = (count, noun, suffix = "s") =>
+    `${count} ${noun}${count !== 1 ? suffix : ""}`;
 
   const handleCheckout = () => {
     alert(
@@ -36,8 +40,13 @@ const Cart = () => {
                 );
               })}
             </ul>
-            <h3>Total: ${cartTotal}</h3>
-            <button className={styles.btn} onClick={() => handleCheckout()}>
+            <h3 className={styles.cartTotal}>
+              Total: ${cartTotal} ({pluralize(itemQuantity, "item")})
+            </h3>
+            <button
+              className={styles.checkout}
+              onClick={() => handleCheckout()}
+            >
               Checkout
             </button>
           </div>

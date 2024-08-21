@@ -1,0 +1,56 @@
+.card {
+  display: flex;
+  border: solid 1px black;
+  margin: 2rem 3rem;
+  align-items: center;
+}
+
+.leftCol img {
+  padding: 1rem;
+  object-fit: contain;
+  width: 250px;
+  height: 200px;
+}
+
+.rightCol {
+  display: flex;
+  flex-flow: column;
+  margin: 1rem;
+}
+
+.itemTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.itemQuantity {
+  line-height: 1;
+}
+
+.itemTotal {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+}
+
+.deleteBtn {
+  margin-top: 0.5rem;
+  width: 90px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 100px;
+  color: rgb(179, 66, 66);
+}
+
+.deleteBtn:hover {
+  background-color: rgb(179, 66, 66);
+  color: beige;
+}
+
+@media (max-width: 700px) {
+  .card {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}

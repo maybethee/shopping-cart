@@ -70,3 +70,16 @@ h1 {
   font-size: 3rem;
   font-weight: bold;
 }
+
+button {
+  background-color: beige;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(225, 225, 185);
+}
+
+.reactLink:hover {
+  text-decoration: underline;
+}
