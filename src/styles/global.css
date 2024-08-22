@@ -83,3 +83,22 @@ button:hover {
 .reactLink:hover {
   text-decoration: underline;
 }
+
+.error {
+  padding: 4rem;
+  font-size: 5rem;
+  color: rgb(179, 66, 66);
+  background-color: beige;
+  height: 100vh;
+}
+
+/* this could probably get some animation? */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: black;
+  background-color: beige;
+  height: 100vh;
+}

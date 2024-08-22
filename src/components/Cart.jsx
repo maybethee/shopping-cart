@@ -51,9 +51,12 @@ const Cart = () => {
             </button>
           </div>
         ) : (
-          <h3>
+          <h3 className={styles.emptyCart}>
             Your cart is empty. Add items from{" "}
-            <Link to="/products">our shop</Link>.
+            <Link className="reactLink" to="/products">
+              our shop
+            </Link>
+            .
           </h3>
         )}
       </div>

@@ -62,8 +62,19 @@ const Root = () => {
     });
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  if (loading)
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <p className="error">
+        A network error was encountered. Check your internet connection and
+        try&nbsp;again.
+      </p>
+    );
 
   return (
     <div>

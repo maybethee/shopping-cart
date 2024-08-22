@@ -21,3 +21,11 @@
   font-weight: bold;
   border-radius: 100px;
 }
+
+.emptyCart {
+  margin-top: 2rem;
+}
+
+.emptyCart a {
+  color: rgb(78, 87, 184);
+}

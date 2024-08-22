@@ -19,7 +19,9 @@
 }
 
 .productDetails {
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 220, 0.51);
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 .productTitle {

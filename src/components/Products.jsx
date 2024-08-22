@@ -3,10 +3,7 @@ import ProductCard from "./ProductCard";
 import styles from "../styles/Products.module.css";
 
 const Products = () => {
-  const { products, addToCart, loading, error } = useOutletContext();
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  const { products, addToCart } = useOutletContext();
 
   return (
     <>
