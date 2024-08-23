@@ -32,7 +32,7 @@ const ProductCard = ({ addToCart, productObject }) => {
 
       <div className={styles.rightCol}>
         <div className={styles.productDetails}>
-          <h4 className={styles.productTitle}>{productObject.title}</h4>
+          <h3 className={styles.productTitle}>{productObject.title}</h3>
           <p className={styles.productDescription}>
             {productObject.description}
           </p>

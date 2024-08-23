@@ -61,9 +61,39 @@ li {
   list-style-type: none;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Text", serif;
+}
+
 .reactLink {
   color: black;
+  position: relative;
   text-decoration: none;
+  display: inline-block;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out, transform-origin 0s 0.3s;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+nav ul li:last-child .navLink::after {
+  content: none;
 }
 
 h1 {
@@ -77,11 +107,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(225, 225, 185);
-}
-
-.reactLink:hover {
-  text-decoration: underline;
+  animation: darken 200ms ease-in-out forwards;
 }
 
 .error {
@@ -91,14 +117,49 @@ button:hover {
   background-color: beige;
   height: 100vh;
 }
-
-/* this could probably get some animation? */
 .loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  color: black;
   background-color: beige;
+  width: 100vw;
   height: 100vh;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::before,
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 238, 187);
+  animation: slide 1s ease-in-out infinite;
+}
+
+.loading::after {
+  background-color: beige;
+  animation-delay: 0.5s;
+}
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes darken {
+  0% {
+    background-color: beige;
+  }
+  100% {
+    background-color: rgb(225, 225, 185);
+  }
 }

@@ -23,9 +23,14 @@
 }
 
 .emptyCart {
+  font-size: 1.3rem;
   margin-top: 2rem;
 }
 
 .emptyCart a {
   color: rgb(78, 87, 184);
+}
+
+.emptyCart a:hover {
+  text-decoration: underline;
 }

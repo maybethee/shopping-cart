@@ -15,4 +15,26 @@
 .errorLink {
   font-size: 2rem;
   color: rgb(78, 87, 184);
+  position: relative;
+}
+
+.errorLink:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(78, 87, 184);
+}
+
+.errorLink::before {
+  content: "← ";
+  position: absolute;
+  left: -50px;
+  transition: transform 0.2s ease-out;
+}
+
+.errorLink:hover::before {
+  transform: translateX(-10px);
 }

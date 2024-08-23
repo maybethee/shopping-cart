@@ -8,18 +8,18 @@ const Nav = ({ cartItems }) => {
       <nav>
         <ul>
           <li>
-            <Link to="/" className="reactLink">
+            <Link to="/" className="reactLink navLink">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/products" className="reactLink">
+            <Link to="/products" className="reactLink navLink">
               Technology
             </Link>
           </li>
           <li>
             {/* should be an icon i guess */}
-            <Link to="/cart" className="reactLink">
+            <Link to="/cart" className="reactLink navLink">
               <div className={styles.cartIconContainer}>
                 <ShoppingBasket size={40} strokeWidth={1.5} />
                 {cartItems >= 1 && (

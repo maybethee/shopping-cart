@@ -62,12 +62,7 @@ const Root = () => {
     });
   };
 
-  if (loading)
-    return (
-      <div className="loading">
-        <p>Loading...</p>
-      </div>
-    );
+  if (loading) return <div className="loading"></div>;
   if (error)
     return (
       <p className="error">

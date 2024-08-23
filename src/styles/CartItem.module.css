@@ -50,8 +50,18 @@
 }
 
 .deleteBtn:hover {
-  background-color: rgb(179, 66, 66);
-  color: beige;
+  animation: deleteBtnDarken 200ms ease-in-out forwards;
+}
+
+@keyframes deleteBtnDarken {
+  0% {
+    background-color: beige;
+    color: rgb(179, 66, 66);
+  }
+  100% {
+    background-color: rgb(179, 66, 66);
+    color: rgb(225, 225, 185);
+  }
 }
 
 @media (max-width: 700px) {

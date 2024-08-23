@@ -25,10 +25,18 @@
 }
 
 .productTitle {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 400;
   margin-bottom: 1rem;
   line-height: 1.2;
+}
+
+.productDescription,
+.addToCart,
+.quantityControl div:first-child button,
+.input,
+.productPrice {
+  font-family: "Anek Devanagari", sans-serif;
 }
 
 .productDescription {
@@ -37,6 +45,7 @@
 
 .productPrice {
   font-weight: bolder;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
@@ -60,7 +69,7 @@
 
 .quantityControl div:first-child button,
 .quantityControl div:first-child input {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .input {
@@ -69,7 +78,7 @@
 
 .addToCart {
   margin-left: 1rem;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: bold;
   padding: 0.5rem;
   width: 110px;
