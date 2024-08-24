@@ -38,7 +38,7 @@ const Home = () => {
     <>
       <div className={styles.pageWrapper}>
         <div className={styles.leftCol}>
-          <h1>The Technology Store!</h1>
+          <h1>The Technology Store</h1>
           <h2>
             We sell technology here. Pay us for it, and we'll give it
             to&nbsp;you.

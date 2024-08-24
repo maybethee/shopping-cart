@@ -21,7 +21,6 @@ const CartItem = ({ cartItemObj, removeFromCart }) => {
             {(+cartItemObj.price).toFixed(2)} each)
           </h5>
 
-          {/* make this an icon  */}
           <button
             className={styles.deleteBtn}
             onClick={() => removeFromCart(cartItemObj.id)}

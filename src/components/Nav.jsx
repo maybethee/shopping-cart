@@ -18,7 +18,6 @@ const Nav = ({ cartItems }) => {
             </Link>
           </li>
           <li>
-            {/* should be an icon i guess */}
             <Link to="/cart" className="reactLink navLink">
               <div className={styles.cartIconContainer}>
                 <ShoppingBasket size={40} strokeWidth={1.5} />
