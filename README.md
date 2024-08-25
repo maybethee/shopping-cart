@@ -1,1 +1,1 @@
-A mock store website made with React to practice implementing server-side routing using the React Router DOM library, featuring dummy products sourced from [Fake Store API](https://fakestoreapi.com/).
+A mock store website made with React to practice implementing client side routing using the React Router DOM library, featuring dummy products sourced from [Fake Store API](https://fakestoreapi.com/).
